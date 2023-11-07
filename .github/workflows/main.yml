@@ -9,18 +9,17 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v2
-            - name: setup Node
+
+            - name: Setup Node and Install Dependencies
               uses: actions/setup-node@v2
               with:
-                  node-version: 14.x
+                  node-version: 16.x
                   registry-url: "https://registry.npmjs.org"
-            - name: Install Dependencies
-              run: yarn
-            - name: Build
-              run: |
-                  npm install
-                  npm install -g firebase-tools
-            - name: deploy to Firebase Hosting
+
+            - name: Install Firebase Tools
+              run: npm install -g firebase-tools
+
+            - name: Deploy to Firebase Hosting
               run: |
                   firebase deploy --token $FIREBASE_TOKEN
               env:
