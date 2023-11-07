@@ -21,6 +21,6 @@ jobs:
 
             - name: Deploy to Firebase Hosting
               run: |
-                  firebase deploy --token $FIREBASE_TOKEN
+                  firebase deploy --token $FIREBASE_TOKEN --project learn-2dfb8 
               env:
                   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
